@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: myapp-sm
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: myapp
+  namespaceSelector:
+    matchNames:
+    - capstone-lab
+  endpoints:
+  - port: http
